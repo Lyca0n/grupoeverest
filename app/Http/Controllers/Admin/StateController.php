@@ -86,6 +86,6 @@ class StateController extends Controller
     {
         State::destroy($id);
 
-        return redirect()->route('property.type.index');
+        return redirect()->route('state.index');
     }
 }

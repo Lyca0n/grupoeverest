@@ -25,7 +25,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        return view('admin.state.index')->withTypes(City::all());
+        return view('admin.city.index')->withTypes(City::all());
     }
 
     /**
@@ -35,7 +35,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        return view('admin.state.create');
+        return view('admin.city.create');
     }
 
     /**
@@ -46,10 +46,10 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        $type = new State();
+        $type = new City();
         $type->name = $request->input('name');
         $type->save();
-        return redirect()->route('state.index');
+        return redirect()->route('city.index');
     }
 
     /**
@@ -60,8 +60,8 @@ class CityController extends Controller
      */
     public function edit($id)
     {
-        $state = State::findOrFail($id);
-        return view('admin.state.edit')->withState($state);
+        $state = City::findOrFail($id);
+        return view('admin.city.edit')->withState($state);
     }
 
     /**
@@ -86,6 +86,6 @@ class CityController extends Controller
     {
         State::destroy($id);
 
-        return redirect()->route('property.type.index');
+        return redirect()->route('state.index');
     }
 }
