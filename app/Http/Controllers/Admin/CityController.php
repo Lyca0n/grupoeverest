@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Property;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\State;
+use App\City;
 
-class StateController extends Controller
+class CityController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -25,7 +25,7 @@ class StateController extends Controller
      */
     public function index()
     {
-        return view('admin.state.index')->withTypes(State::all());
+        return view('admin.state.index')->withTypes(City::all());
     }
 
     /**
