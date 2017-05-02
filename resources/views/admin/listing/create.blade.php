@@ -2,6 +2,15 @@
 
 @section('content')
 <div class="container">
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -11,15 +20,15 @@
                    {!! Form::token() !!}
                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         {!! Form::label('name', 'Nombre')!!}
-                        {!! Form::text('name', null, ['class' => 'form-control' ]) !!}
+                        {!! Form::text('name', old('name'), ['class' => 'form-control' ]) !!}
                    </div>
                    <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
                         {!! Form::label('name', 'Precio')!!}
-                        {!! Form::text('price', null, ['class' => 'form-control' ]) !!}
+                        {!! Form::text('price', old('price'), ['class' => 'form-control' ]) !!}
                    </div>
                    <div class="form-group{{ $errors->has('squaremeters') ? ' has-error' : '' }}">
                         {!! Form::label('name', 'Metros Cuadrados')!!}
-                        {!! Form::text('squaremeters', null, ['class' => 'form-control' ]) !!}
+                        {!! Form::text('squaremeters', old('squaremeters'), ['class' => 'form-control' ]) !!}
                    </div>
                    <div class="form-group{{ $errors->has('buildsquaremeters') ? ' has-error' : '' }}">
                         {!! Form::label('name', 'Metros Cuadrados de Construcion')!!}
@@ -44,14 +53,6 @@
                    <div class="form-group{{ $errors->has('zipcode') ? ' has-error' : '' }}">
                         {!! Form::label('name', 'Codigo postal')!!}
                         {!! Form::text('zipcode', null, ['class' => 'form-control' ]) !!}
-                   </div>
-                   <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }}">
-                        {!! Form::label('name', 'longitude')!!}
-                        {!! Form::text('longitude', null, ['class' => 'form-control' ]) !!}
-                   </div>
-                   <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }}">
-                        {!! Form::label('name', 'Latitud')!!}
-                        {!! Form::text('latitude', null, ['class' => 'form-control' ]) !!}
                    </div>
                     <div class="form-group{{ $errors->has('ltype') ? ' has-error' : '' }}">
                             {!! Form::label('name', 'Tipo de propiedad')!!}

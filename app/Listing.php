@@ -10,7 +10,7 @@ class Listing extends Model
     protected $table="listings";
     protected $fillable=['name','price','squaremeters','buildsquaremeters','number',
         'street','neighbourhood','description','description',
-        'zipcode','longitude','latitude', 'listing_type_id','operation_type_id','state_id','city_id', ];
+        'zipcode', 'listing_type_id','operation_type_id','state_id','city_id', ];
     public function listingType(){
         return $this->hasOne('App\ListingType', 'id');
     }

@@ -24,8 +24,6 @@ class CreateListingTable extends Migration
             $table->string('neighbourhood');
             $table->text('description');
             $table->string('zipcode');
-            $table->decimal('longitude', 6,2);
-            $table->decimal('latitude', 6,2);
             $table->integer('operation_type_id')->unsigned()->index();
             $table->foreign('operation_type_id')->references('id')->on('operation_types');
             $table->integer('listing_type_id')->unsigned()->index();

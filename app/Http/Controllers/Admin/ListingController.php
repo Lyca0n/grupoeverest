@@ -58,6 +58,18 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'price' => 'required',
+            'squaremeters'=>'numeric|min:2',
+            'buildsquaremeters'=>'numeric|min:2',
+            'number'=>'numeric|min:4',
+            'street'=>'required|max:50',
+            'neighbourhood'=>'required|max:50',
+            'description'=>'required|max:255',
+            'zipcode'=>'numeric|min:5',
+        ]);
+
         $listing = new Listing();
         $listing->name = $request->input('name');
         $listing->price = $request->input('price');
@@ -68,8 +80,6 @@ class ListingController extends Controller
         $listing->neighbourhood = $request->input('neighbourhood');
         $listing->description = $request->input('description');
         $listing->zipcode = $request->input('zipcode');
-        $listing->longitude = $request->input('longitude');
-        $listing->latitude = $request->input('latitude');
         $listing->listing_type_id = $request->input('ltype');
         $listing->operation_type_id = $request->input('otype');
         $listing->city_id = $request->input('city');
@@ -148,8 +158,6 @@ class ListingController extends Controller
         $listing->neighbourhood = $request->input('neighbourhood');
         $listing->description = $request->input('description');
         $listing->zipcode = $request->input('zipcode');
-        $listing->longitude = $request->input('longitude');
-        $listing->latitude = $request->input('latitude');
         $listing->listing_type_id = $request->input('type');
         $listing->operation_type_id = $request->input('otype');
         $listing->city_id = $request->input('city');
