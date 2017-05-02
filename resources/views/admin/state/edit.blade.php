@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Editar estado</div>
                 <div class="panel-body">
-                   {!! Form::open(array('url' => '/admin/state/update')) !!}
+                   {!! Form::open(array('url' => '/admin/state/update/'.$state->id)) !!}
                    {!! Form::token() !!}
                    <div class="form-group{{ $errors->has('company_name') ? ' has-error' : '' }}">
                         {!! Form::label('name', 'Nombre')!!}

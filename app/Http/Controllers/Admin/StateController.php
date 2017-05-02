@@ -73,7 +73,10 @@ class StateController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $state = State::findOrFail($id);
+        $state->name = $request->input('name');
+        $state->save();
+        return redirect()->route('state.index');
     }
 
     /**

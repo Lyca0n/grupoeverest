@@ -3,10 +3,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-        <h3>Configuracion <small>&raquo; Estados</small></h3>
+        <h3>Configuracion <small>&raquo; Ciudades</small></h3>
       </div>
       <div class="col-md-6 text-right">
-        <a href="/admin/state/create" class="btn btn-success btn-md">
+        <a href="/admin/city/create" class="btn btn-success btn-md">
           <i class="fa fa-plus-circle"></i> Nuevo
         </a>
       </div>
@@ -33,11 +33,11 @@
                 {{ $type->updated_at }}
               </td>
               <td>
-                <a href="/admin/state/edit/{{ $type->id }}"
+                <a href="/admin/city/edit/{{ $type->id }}"
                    class="btn btn-xs btn-info">
                   <i class="fa fa-edit"></i> Editar
                 </a>
-                <a href="/admin/state/delete/{{ $type->id }}"
+                <a href="/admin/city/delete/{{ $type->id }}"
                    class="btn btn-xs btn-danger">
                   <i class="fa fa-minus-circle"></i> Borrar
                 </a>

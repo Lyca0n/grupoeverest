@@ -46,7 +46,7 @@
               <td>{{ $listing->number }}</td>
               <td>{{ $listing->street }}</td>
               <td>{{ $listing->neighbourhood }}</td>
-              <td>{{ $listing->description }}</td>
+              <td>{{ str_limit($listing->description, 70) }}</td>
               <td>{{ $listing->zipcode }}</td>
               <td>{{ $listing->longitude }}</td>
               <td>{{ $listing->latitude }}</td>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -44,14 +44,6 @@
                    <div class="form-group{{ $errors->has('zipcode') ? ' has-error' : '' }}">
                         {!! Form::label('name', 'Codigo postal')!!}
                         {!! Form::text('zipcode', $listing->zipcode, ['class' => 'form-control' ]) !!}
-                   </div>
-                   <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }}">
-                        {!! Form::label('name', 'longitude')!!}
-                        {!! Form::text('longitude', $listing->longitude, ['class' => 'form-control' ]) !!}
-                   </div>
-                   <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }}">
-                        {!! Form::label('name', 'Latitud')!!}
-                        {!! Form::text('latitude', $listing->latitude, ['class' => 'form-control' ]) !!}
                    </div>
                     <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                             {!! Form::label('name', 'Tipo de propiedad')!!}

@@ -16,6 +16,17 @@ use Input;
 
 class ListingController extends Controller
 {
+    protected $rules =array(
+        'name' => 'required|max:255',
+        'price' => 'required',
+        'squaremeters'=>'numeric|min:2',
+        'buildsquaremeters'=>'numeric|min:2',
+        'number'=>'numeric|min:4',
+        'street'=>'required|max:50',
+        'neighbourhood'=>'required|max:50',
+        'description'=>'required|max:255',
+        'zipcode'=>'numeric|min:5',
+    );
     /**
      * Create a new controller instance.
      *
@@ -58,17 +69,9 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'price' => 'required',
-            'squaremeters'=>'numeric|min:2',
-            'buildsquaremeters'=>'numeric|min:2',
-            'number'=>'numeric|min:4',
-            'street'=>'required|max:50',
-            'neighbourhood'=>'required|max:50',
-            'description'=>'required|max:255',
-            'zipcode'=>'numeric|min:5',
-        ]);
+        $this->validate($request,
+            $this->rules
+        );
 
         $listing = new Listing();
         $listing->name = $request->input('name');
@@ -148,6 +151,9 @@ class ListingController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,
+            $this->rules
+        );
         $listing = Listing::findOrFail($id);
         $listing->name = $request->input('name');
         $listing->price = $request->input('price');

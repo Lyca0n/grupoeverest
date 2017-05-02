@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\City;
+use App\State;
 
 class CityController extends Controller
 {
@@ -35,7 +36,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        return view('admin.city.create');
+        return view('admin.city.create')->withStates(State::all());
     }
 
     /**
@@ -46,9 +47,10 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        $type = new City();
-        $type->name = $request->input('name');
-        $type->save();
+        $city = new City();
+        $city->name = $request->input('name');
+        $city->state_id = $request->input('state');
+        $city->save();
         return redirect()->route('city.index');
     }
 
@@ -60,8 +62,12 @@ class CityController extends Controller
      */
     public function edit($id)
     {
-        $state = City::findOrFail($id);
-        return view('admin.city.edit')->withState($state);
+        $city = City::findOrFail($id);
+        return view('admin.city.edit',[
+            'city' => $city,
+            'states' => State::all(),
+            'state' => State::findOrFail($city->state_id),
+        ]);
     }
 
     /**
@@ -73,7 +79,10 @@ class CityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $city = City::findOrFail($id);
+        $city->name = $request->input('name');
+        $city->save();
+        return redirect()->route('city.index');
     }
 
     /**

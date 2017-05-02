@@ -93,7 +93,8 @@
       <div class="col-md-4">
         <div class="panel">
           <!-- Default panel contents -->
-          <div class="panel-heading">{{ $listings[0]->name  }}
+          <div class="panel-heading">{{ $listings[$i+1]->name  }}
+          <a class="btn btn-info" href="/listing/show/{{ $listings[$i+1]->id }}">Ver</a>
           </div>
           <div class="panel-body">
             <div class="row">
@@ -141,7 +142,8 @@
       <div class="col-md-4">
         <div class="panel">
           <!-- Default panel contents -->
-          <div class="panel-heading">{{ $listings[0]->name  }}
+          <div class="panel-heading">{{ $listings[$i+2]->name  }}
+          <a class="btn btn-info" href="/listing/show/{{ $listings[$i+2]->id }}">Ver</a>
           </div>
           <div class="panel-body">
             <div class="row">

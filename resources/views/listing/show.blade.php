@@ -14,7 +14,7 @@
       <h2><span class="label label-info">{{$listing->name}}</span></h2>
     </div>
     <div class="col-md-5 text-right">
-    <h3 onclick="window.history.back()" ><span class="label label-success">Regresar</span></h3>
+    <h3><a href="#" class="label label-success"onclick="window.history.back()">Regresar</a></h3>
 
     </div>
   </div>
